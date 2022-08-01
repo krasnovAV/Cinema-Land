@@ -1,0 +1,20 @@
+$backGroundColor: #000000;
+$accentColor: rgb(255, 239, 30);
+$fontColor: #fff;
+$maxWidth: 1000px;
+
+.app{
+  font-family: Arial sans-serif;
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $backGroundColor;
+  color: $fontColor;
+  margin: 0 auto;
+  position: relative;
+
+
+}

@@ -1,0 +1,46 @@
+.dropdown {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 80px;
+  right: 0;
+  transform: translateX(130%);
+  transition: all 0.5s;
+
+  &.active {
+    transform: translateX(0);
+
+    .blur {
+      width: 60vw;
+      height: 100vh;
+      right: 40%;
+      backdrop-filter: blur(2px);
+      position: absolute;
+    }
+
+    .dropdown__content {
+      position: absolute;
+      right: 0;
+      width: 40vw;
+      height: 100vh;
+      background-color: grey;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.4s;
+      color: red;
+    }
+    @media screen and (max-width: 768px) {
+      .dropdown__content {
+        width: 100%;
+      }
+
+      .blur {
+        backdrop-filter: none;
+        transform: translateX(200%);
+      }
+    }
+  }
+
+}

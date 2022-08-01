@@ -1,0 +1,10 @@
+@import "src/App";
+
+.appContent{
+  max-width: $maxWidth;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}

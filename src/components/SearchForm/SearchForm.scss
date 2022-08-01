@@ -1,0 +1,44 @@
+.searchForm {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  margin-left: -20px;
+
+  input {
+    margin: 10px 0;
+    width: 80%;
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  &__years {
+    margin: 15px 0;
+  }
+  select {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+
+  &__footer {
+    height: 40px;
+    width: 80%;
+    display: flex;
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 2px solid #8c8c8c;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      margin: 5px 10px;
+      height: 30px;
+      width: 10vw;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  }
+}

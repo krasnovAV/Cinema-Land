@@ -1,0 +1,22 @@
+@import "src/App";
+
+.burger {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  opacity: 1;
+  color: $fontColor;
+  transition: opacity 0.3s;
+  width: 40px;
+  height: 40px;
+  background-color: $backGroundColor;
+
+  &:hover {
+    opacity: 0.8 ;
+    background: $accentColor;
+    color: #000;
+  }
+}

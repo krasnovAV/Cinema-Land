@@ -1,0 +1,63 @@
+@import "src/App";
+
+.filmCard {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 5px;
+
+  &__logo {
+    position: relative;
+    margin-right: 15px;
+    img {
+      width: 200px;
+      transition: opacity 0.5s;
+      opacity: 1;
+    }
+    .logo__btnPlay{
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: $accentColor;
+      padding: 5px 0 6px 8px;
+      transition: opacity 0.5s;
+      opacity: 0;
+    }
+    &:hover{
+      cursor: pointer;
+      .logo__btnPlay{
+        opacity: 1;
+      }
+      img{
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__description {
+    .description__header {
+      display: flex;
+      height: 40px;
+      justify-content: space-between;
+      padding-right: 10px;
+      span{
+        color: $accentColor;
+      }
+    }
+    h2, h3 {
+      margin: 10px 0;
+
+      &:last-child {
+        height: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+  }
+
+}

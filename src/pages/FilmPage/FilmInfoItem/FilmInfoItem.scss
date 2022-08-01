@@ -1,0 +1,20 @@
+
+  .filmInfoItem{
+    max-width: 750px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 5px;
+
+    &__title{
+      width: 200px;
+      margin-right: 5px;
+      span{
+        color: #8c8c8c;
+      }
+    }
+
+    &__body{
+      width: 400px;
+    }
+  }

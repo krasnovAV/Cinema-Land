@@ -1,0 +1,51 @@
+@import "src/App";
+
+
+.navBar {
+  width: 100%;
+  max-width: $maxWidth;
+  margin-bottom: 15px;
+  padding-right: 20px;
+  position: relative;
+
+  .navbar__content {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+
+    .content__logoLink {
+      text-decoration: none;
+      color: $fontColor;
+      width: 150px;
+      text-align: center;
+      font-size: 25px;
+
+      &:hover {
+        color: lightgrey;
+      }
+
+      .logoLink__label {
+        width: 200px;
+        font-size: 25px;
+        text-align: center;
+      }
+    }
+
+    .navBar__link {
+      text-decoration: none;
+    }
+
+    .navBar__icon {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+
+      & :hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

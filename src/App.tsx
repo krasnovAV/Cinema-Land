@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import './App.scss';
+import "./App.scss"
+import {Header} from "./components/Header/Header";
+import {Content} from "./components/Content/Content";
+import {Footer} from "./components/Footer/Footer";
+
+
+// библиотека для медиазапросов на изменение размера экрана
+import {useMediaQuery} from 'react-responsive'
+import {screenSlice} from "./store/screenSlice";
+import {useAppDispatch} from "./hooks/redux";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let isSmallScreen = useMediaQuery({query: '(max-width: 1024px)'})
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(screenSlice.actions.toggleIsSmallScreen(isSmallScreen))
+    }, [isSmallScreen])
+
+    return (
+        <div className="app">
+            <Header/>
+            <Content/>
+            {/*todo ,убрать small large */}
+            {isSmallScreen
+                ? <div>small</div>
+                : <div>large</div>}
+            <Footer/>
+        </div>
+    );
 }
 
 export default App;
