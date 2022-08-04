@@ -4,17 +4,17 @@ import "./Header.scss"
 import {FiSettings} from "react-icons/fi";
 import {Modal} from "../UI/Modal/Modal";
 import {SearchForm} from "../SearchForm/SearchForm";
+import {useAppDispatch} from "../../hooks/redux";
+import {searchSlice} from "../../store/searchSlice";
 
-interface IHeaderProps {
-}
-
-export const Header: FC<IHeaderProps> = () => {
+export const Header: FC = () => {
     const [isSearch, setIsSearch] = useState(false);
     const [searchValue, setSearchValue] = useState("");
     const [activeModal, setActiveModal] = useState(false);
+    const dispatch = useAppDispatch();
 
     const handleSubmit = () => {
-        console.log(searchValue);
+        dispatch(searchSlice.actions.searchByName(searchValue))
         setSearchValue("");
     }
 
@@ -27,7 +27,7 @@ export const Header: FC<IHeaderProps> = () => {
                  onClick={e => e.stopPropagation()}>
 
                 <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
-                <div className="search__settings" onClick={()=> setActiveModal(true)}>
+                <div className="search__settings" onClick={() => setActiveModal(true)}>
                     <FiSettings size={27} style={{color: "black"}}/>
                 </div>
                 <button onClick={handleSubmit}>Поиск</button>

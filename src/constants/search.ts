@@ -1,20 +1,42 @@
-import {Genre} from "../types/IMovie";
+export const START_YEAR = 1980;
+export const END_YEAR = 2022;
+
 
 export const getYearsRange = () => {
-    let from = 1980;
-    let to = 2022;
+    let from = START_YEAR;
+    let to = END_YEAR;
 
-    let resultArr: string[] = [];
+    let resultArr: number[] = [];
     for (let i = from; i <= to; i++) {
-        resultArr.push(String(i));
+        resultArr.push(i);
     }
-    resultArr.push("");
     return resultArr.reverse();
 }
 
-export const genres: string[] = [
-    "", "аниме", "биография", "боевик", "вестерн", "военный", "детектив", "детский", "для взрослых",
-    "документальный", "драма", "игра", "история", "комедия", "концерт", "короткометражка", "криминал",
-    "мелодрама", "музыка", "мультфильм", "мюзикл", "новости", "приключения", "реальное ТВ",
-    "семейный", "спорт", "ток-шоу", "триллер", "ужасы", "фантастика", "фильм-нуар",
-    "фэнтези", "церемония"]
+export const genres = [
+    {label: "Все жанры", value: ""},
+    {label: "Семейные", value: "семейный"},
+    {label: "Биографии", value: "биография"},
+    {label: "Боевики", value: "боевик"},
+    {label: "Вестерны", value: "вестерн"},
+    {label: "Военные", value: "военный"},
+    {label: "Детективы", value: "детектив"},
+    {label: "Детские", value: "детский"},
+    {label: "Документальные", value: "документальный"},
+    {label: "Драмы", value: "драма"},
+    {label: "Исторические", value: "история"},
+    {label: "Комедии", value: "комедия"},
+    {label: "Короткометражки", value: "короткометражка"},
+    {label: "Криминал", value: "криминал"},
+    {label: "Мелодрамы", value: "мелодрама"},
+    {label: "Музыкальные", value: "музыка"},
+    {label: "Мюзиклы", value: "мюзикл"},
+    {label: "Новости", value: "новости"},
+    {label: "Приключения", value: "приключения"},
+    {label: "Спортивные", value: "спорт"},
+    {label: "Триллеры", value: "триллер"},
+    {label: "Ужасы", value: "ужасы"},
+    {label: "Фантастика", value: "фантастика"},
+    {label: "Фильмы-нуар", value: "фильм-нуар"},
+    {label: "Фэнтези", value: "фэнтези"}
+]

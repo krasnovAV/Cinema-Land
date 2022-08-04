@@ -15,13 +15,20 @@
   }
 
   &__years {
-    margin: 15px 0;
+    margin: 10px 0;
   }
+  &__rating{
+    input{
+      width: 50px;
+      margin: 0 10px;
+    }
+  }
+
   select {
     font-size: 20px;
     margin-right: 10px;
+    margin-bottom: 15px;
   }
-
 
   &__footer {
     height: 40px;
