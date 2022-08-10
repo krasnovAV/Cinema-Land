@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "user",
+      "email": "user@",
+      "password": "qwerty"
+    },
+    {
+      "name": "w",
+      "email": "w",
+      "password": "w",
+      "id": 2
+    },
+    {
+      "name": "a",
+      "email": "a",
+      "password": "a",
+      "id": 3
+    },
+    {
+      "name": "f",
+      "email": "f",
+      "password": "f",
+      "id": 4
+    },
+    {
+      "name": "o",
+      "email": "o",
+      "password": "o",
+      "id": 5
+    }
+  ]
+}

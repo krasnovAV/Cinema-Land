@@ -8,9 +8,12 @@ export const CinemaLandAPI = createApi({
     reducerPath: "CinemaLandAPI",
     baseQuery: fetchBaseQuery({baseUrl: API_URL}),
     endpoints: (build) => ({
-        getNewFilms: build.query<IData, number | null>({
-            query: (limit = LIMIT) => ({
-                url: `/movie?field=rating.kp&search=1-10&limit=${limit}&field=year&search=2022&field=typeNumber&search=1&sortField=year&sortType=1&token=${API_Key}`,
+        getNewFilms: build.query<IData, ISearchingParams>({
+            query: ({limit = LIMIT, page = 1}) => ({
+                url: `/movie?field=rating.kp&search=1-10&limit=${limit}
+                &field=year&search=2022&
+                field=typeNumber&search=1
+                &page=${page}&sortField=year&sortType=1&token=${API_Key}`,
             })
         }),
         getFilmById: build.query<IMovie, number>({
@@ -19,13 +22,16 @@ export const CinemaLandAPI = createApi({
             })
         }),
         searchFilms: build.query<IData, ISearchingParams>({
-            query: ({name, endYear, startYear, type, endRating, startRating, genre}) => ({
-                url: `/movie?field=name&search=${name}&limit=${LIMIT}&field=rating.kp&search=${startRating}-${endRating}&field=year&search=${startYear}-${endYear}&field=typeNumber&search=${type}&field[]=genres.name&search[]=${genre![0].value}&isStrict=false&token=${API_Key}`,
+            query: ({name, endYear, startYear, type, endRating, startRating, genre}, page = 1) => ({
+                url: `/movie?field=name&search=${name}&limit=${LIMIT}
+                &field=rating.kp&search=${startRating}-${endRating}
+                &field=year&search=${startYear}-${endYear}${type}${genre}
+                &page=${page}&isStrict=false&token=${API_Key}`,
             })
         }),
-        searchFilmsByName: build.query<IData, string>({
-            query: (name: string) => ({
-                url: `/movie?search=${name}&field=name&limit=${LIMIT}&isStrict=false&token=${API_Key}`,
+        searchFilmsByName: build.query<IData, ISearchingParams>({
+            query: ({name, page = 1}) => ({
+                url: `/movie?search=${name}&field=name&limit=${LIMIT}&page=${page}&isStrict=false&token=${API_Key}`,
             })
         })
     })

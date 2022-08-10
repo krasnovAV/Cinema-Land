@@ -45,6 +45,10 @@ export const searchSlice = createSlice({
         setIsSearchByName(state, action: PayloadAction<boolean>) {
             state.isSearchByName = action.payload;
         },
+        canselSearch(state){
+            state.isSearchByName = false;
+            state.isSearchByParams = false;
+        }
     }
 })
 

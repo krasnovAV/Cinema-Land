@@ -9,7 +9,8 @@ import {Link} from "react-router-dom";
 import {apiRoutes} from "../../constants/routes";
 import BurgerMenu from "../UI/BurgerMenu/BurgerMenu";
 import {Dropdown} from "../UI/BurgerMenu/DropDown/Dropdown";
-import {useAppSelector} from "../../hooks/redux";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {searchSlice} from "../../store/searchSlice";
 
 interface INavProps {
     isSearch: boolean;
@@ -19,6 +20,8 @@ interface INavProps {
 export const NavBar: FC<INavProps> = ({setIsSearch, isSearch}) => {
     const [burgerActive, setBurgerActive] = useState(false)
     const {isSmallScreen} = useAppSelector(state => state.screenReducer)
+    const dispatch = useAppDispatch();
+    const {name, isAuth, id} = useAppSelector(state => state.authReducer)
 
     const toggleIsSearch = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation()
@@ -29,7 +32,9 @@ export const NavBar: FC<INavProps> = ({setIsSearch, isSearch}) => {
         <div className="navBar">
             <div className="navbar__content">
                 <Link to={apiRoutes.home} className="content__logoLink">
-                    <div className="logoLink__label">Cinema-Land online</div>
+                    <div className="logoLink__label"
+                         onClick={() => dispatch(searchSlice.actions.canselSearch())}>Cinema-Land online
+                    </div>
                 </Link>
 
                 <div style={{display: "flex", alignItems: "center"}}>
@@ -39,13 +44,19 @@ export const NavBar: FC<INavProps> = ({setIsSearch, isSearch}) => {
 
                     {isSmallScreen
                         ? <BurgerMenu isActive={burgerActive} setIsActive={setBurgerActive}/>
-                        :
-                        <Link to={apiRoutes.login} className="navBar__link">
-                            <MyButton>
-                                <div><img className="navBar__icon" src={userIcon} alt=""/></div>
-                                <div>Войти</div>
-                            </MyButton>
-                        </Link>
+                        : isAuth
+                            ? <Link to={apiRoutes.user + `${id}`} className="navBar__link">
+                                <MyButton>
+                                    <div><img className="navBar__icon" src={userIcon} alt=""/></div>
+                                    <div>{name}</div>
+                                </MyButton>
+                            </Link>
+                            : <Link to={apiRoutes.login} className="navBar__link">
+                                <MyButton>
+                                    <div><img className="navBar__icon" src={userIcon} alt=""/></div>
+                                    <div>Войти</div>
+                                </MyButton>
+                            </Link>
                     }
                 </div>
             </div>

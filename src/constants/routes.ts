@@ -3,5 +3,6 @@ export const apiRoutes = {
     login: "login/",
     film: "film/",
     registering: "registering/",
+    user: "user/",
 
 }

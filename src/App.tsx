@@ -23,10 +23,6 @@ function App() {
         <div className="app">
             <Header/>
             <Content/>
-            {/*todo ,убрать small large */}
-            {isSmallScreen
-                ? <div>small</div>
-                : <div>large</div>}
             <Footer/>
         </div>
     );

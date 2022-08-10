@@ -2,10 +2,12 @@ export interface ISearchingParams {
     name?: string,
     startYear?: number,
     endYear?: number,
-    genre?: IGenre[],
-    type?: number,
-    startRating: number,
-    endRating: number,
+    genre?: string,
+    type?: string,
+    startRating?: number,
+    endRating?: number,
+    page?: number,
+    limit?: number
 }
 
 interface IGenre {

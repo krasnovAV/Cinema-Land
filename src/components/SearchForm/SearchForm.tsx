@@ -4,6 +4,7 @@ import {END_YEAR, genres, getYearsRange, START_YEAR} from "../../constants/searc
 import {useAppDispatch} from "../../hooks/redux";
 import {searchSlice} from "../../store/searchSlice";
 import {ISearchingParams} from "../../types/ISearchingParams";
+import {InputNumberWithCorrectValue} from "../UI/InputNumberWithCorrectValue";
 
 interface IFormProps {
     setActive: (active: boolean) => void;
@@ -14,7 +15,7 @@ export const SearchForm: FC<IFormProps> = ({setActive}) => {
     const [startYear, setStartYear] = useState(START_YEAR);
     const [endYear, setEndYear] = useState(END_YEAR);
     const [genre, setGenre] = useState(genres[0]);
-    const [type, setType] = useState("any");
+    const [type, setType] = useState("");
     const [startRating, setStartRating] = useState(1);
     const [endRating, setEndRating] = useState(10);
 
@@ -26,7 +27,7 @@ export const SearchForm: FC<IFormProps> = ({setActive}) => {
         setEndYear(END_YEAR);
         setGenre(genres[0]);
         setActive(false);
-        setType("any");
+        setType("");
         setStartRating(1);
         setEndRating(10);
     }
@@ -42,8 +43,12 @@ export const SearchForm: FC<IFormProps> = ({setActive}) => {
             name,
             startYear: +startYear,
             endYear: +endYear,
-            genre: [genre],
-            type: type === "films" ? 1 : type === "serials" ? 2 : 0,
+            genre: genres[0].value !== '' ? `&search[]=${genres[0].value}&field[]=genres.name` : '',
+            type: type === ""
+                ? ""
+                : "films"
+                    ? `&field=typeNumber&search=1`
+                    : `&field=typeNumber&search=2`,
             startRating: startRating,
             endRating: endRating
         }
@@ -52,7 +57,7 @@ export const SearchForm: FC<IFormProps> = ({setActive}) => {
     }
 
 
-    // todo сделать валидацию полей
+    // todo сделать валидацию полей (на рейтинг сделана)
     return (
         <div className="searchForm">
             <label>Поиск по параметрам</label>
@@ -64,7 +69,7 @@ export const SearchForm: FC<IFormProps> = ({setActive}) => {
                 Год с <select name="startYear" id="1"
                               value={startYear}
                               onChange={e => setStartYear(+e.target.value)}>
-                {getYearsRange().map(year => <option value={year} key={"start" + year} >{year}</option>)}
+                {getYearsRange().map(year => <option value={year} key={"start" + year}>{year}</option>)}
             </select>
 
                 по <select name="endYear" id="2"
@@ -75,26 +80,32 @@ export const SearchForm: FC<IFormProps> = ({setActive}) => {
             </div>
 
             <div>
-                Жанр <select name="genres" id="3" defaultValue={""}
+                Жанр <select name="genres" id="3"
                              value={genre.value}
                              onChange={e => setGenre(genres[genres.findIndex(item => item.value === e.target.value)])}>
-                {genres.map((genre) => <option value={genre.value} >{genre.label}</option>)}
+                {genres.map((genre) => <option key={genre.label} value={genre.value}>{genre.label}</option>)}
             </select>
             </div>
 
             <div>
-                Тип <select name="type" id="4" defaultValue={"any"}
+                Тип <select name="type" id="4"
                             value={type}
                             onChange={e => setType(e.target.value)}>
-                <option value={"any"}>Любой</option>
+                <option value={""}>Любой</option>
                 <option value={"films"}>Фильмы</option>
                 <option value={"serials"}>Сериалы</option>
             </select>
             </div>
 
             <div className="searchForm__rating">
-                Рейтинг КП с <input type="number" value={startRating} onChange={e => setStartRating(+e.target.value)}/>
-                по <input type="number" value={endRating} onChange={e => setEndRating(+e.target.value)}/>
+                Рейтинг КП с <InputNumberWithCorrectValue startRange={0}
+                                                          endRange={10}
+                                                          currentValue={startRating}
+                                                          changeValue={setStartRating}/>
+                по <InputNumberWithCorrectValue startRange={0}
+                                                endRange={10}
+                                                currentValue={endRating}
+                                                changeValue={setEndRating}/>
             </div>
 
 
