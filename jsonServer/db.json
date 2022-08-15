@@ -30,5 +30,18 @@
       "password": "o",
       "id": 5
     }
+  ],
+  "favourites": [
+    {
+      "id": 1,
+      "userId": 3,
+      "favourites": [
+        {
+          "title": "Крушение: Дело против Boeing",
+          "year": 2022,
+          "Id": 1357639
+        }
+      ]
+    }
   ]
 }

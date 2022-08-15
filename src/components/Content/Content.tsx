@@ -8,8 +8,6 @@ export const Content = () => {
     return (
         <div className="appContent">
             <AppRoutes/>
-
-
         </div>
     );
 };

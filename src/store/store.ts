@@ -1,15 +1,19 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {CinemaLandAPI} from "../services/cinemaLandService";
-import screenReducer from "./screenSlice"
-import searchReducer from "./searchSlice"
+import screenReducer from "./screenSlice";
+import searchReducer from "./searchSlice";
 import {AuthAPI} from "../services/authService";
-import authReducer from "./authSlice"
+import authReducer from "./authSlice";
+import favouritesReducer from "./favouritesSlice";
+import {FavouritesAPI} from "../services/favouritesService";
 
 const rootReducer = combineReducers({
     [CinemaLandAPI.reducerPath]: CinemaLandAPI.reducer,
+    [FavouritesAPI.reducerPath]: FavouritesAPI.reducer,
     screenReducer,
     searchReducer,
     authReducer,
+    favouritesReducer,
     [AuthAPI.reducerPath]: AuthAPI.reducer,
 })
 

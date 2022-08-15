@@ -28,6 +28,10 @@
         color: $accentColor;
       }
     }
+    .info__about{
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__player{
