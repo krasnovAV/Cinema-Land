@@ -19,8 +19,7 @@ export const LoginPage: FC = () => {
     const [isRegister, setIsRegister] = useState(false)
     const dispatch = useAppDispatch();
     let navigate = useNavigate();
-    const {isAuth, id} = useAppSelector(state => state.authReducer)
-
+    const {isAuth} = useAppSelector(state => state.authReducer)
 
     useEffect(() => {
         isRegister
@@ -28,7 +27,7 @@ export const LoginPage: FC = () => {
             : data && dispatch(authSlice.actions.login(data[0]))
     }, [data, registerData])
 
-    isAuth && navigate(`../user/${id}`, {replace: true})
+    isAuth && navigate(`../`, {replace: true})
 
     const clearForm = () => {
         setEmail("");
@@ -47,8 +46,8 @@ export const LoginPage: FC = () => {
         if (checkData) {
             alert("Такой пользователь уже существует")
         } else {
-            debugger
             registerUser({name, email, password});
+            dispatch(authSlice.actions.toggleIsNewUser(true));
         }
         clearForm();
         setIsRegister(true);

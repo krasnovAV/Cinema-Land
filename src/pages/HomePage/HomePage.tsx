@@ -7,6 +7,8 @@ import {FilmCard} from "../../components/FilmCard/FilmCard";
 import {searchSlice} from "../../store/searchSlice";
 import {Pagination} from "../../components/UI/Pagination/Pagination";
 import {LIMIT} from "../../constants/api";
+import {FavouritesAPI} from "../../services/favouritesService";
+import {favouritesSlice} from "../../store/favouritesSlice";
 
 
 export const HomePage: FC = memo(() => {
@@ -27,6 +29,12 @@ export const HomePage: FC = memo(() => {
     const dispatch = useAppDispatch();
     const [currentPage, setCurrentPage] = useState(1);
 
+    const {id, isAuth} = useAppSelector(state => state.authReducer)
+    const {data: dataFavourites} = FavouritesAPI.useGetFavouritesQuery(id as number);
+
+    useEffect(() => {
+        isAuth && dataFavourites && dispatch(favouritesSlice.actions.setFavourites(dataFavourites[0]))
+    }, [dataFavourites])
 
     let pagesCount;
     isSearchByName
@@ -34,7 +42,6 @@ export const HomePage: FC = memo(() => {
         : isSearchByParams
             ? pagesCount = dataByParams?.pages as number
             : pagesCount = data?.pages as number
-
 
     useEffect(() => {
         dispatch(searchSlice.actions.canselSearch);
@@ -49,7 +56,6 @@ export const HomePage: FC = memo(() => {
             getNewFilms({limit: LIMIT, page: currentPage})
         }
     }, [isSearchByName, name, isSearchByParams, searchParams, currentPage])
-
 
     return (
         <div className="homePage">

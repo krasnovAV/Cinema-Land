@@ -4,5 +4,4 @@ export const apiRoutes = {
     film: "film/",
     registering: "registering/",
     user: "user/",
-
 }

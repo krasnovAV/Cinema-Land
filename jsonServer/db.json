@@ -1,45 +1,48 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "user",
-      "email": "user@",
-      "password": "qwerty"
-    },
-    {
-      "name": "w",
-      "email": "w",
-      "password": "w",
-      "id": 2
-    },
-    {
       "name": "a",
       "email": "a",
       "password": "a",
-      "id": 3
+      "id": 1
     },
     {
-      "name": "f",
-      "email": "f",
-      "password": "f",
-      "id": 4
-    },
-    {
-      "name": "o",
-      "email": "o",
-      "password": "o",
-      "id": 5
+      "name": "z",
+      "email": "z",
+      "password": "z",
+      "id": 2
     }
   ],
   "favourites": [
     {
       "id": 1,
-      "userId": 3,
+      "userId": 1,
       "favourites": [
         {
+          "Id": 1345617,
+          "title": "Невыносимая тяжесть огромного таланта",
+          "year": 2022
+        },
+        {
+          "Id": 1357639,
           "title": "Крушение: Дело против Boeing",
-          "year": 2022,
-          "Id": 1357639
+          "year": 2022
+        },
+        {
+          "Id": 1328359,
+          "title": "Лестница",
+          "year": 2022
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "favourites": [
+        {
+          "Id": 1328359,
+          "title": "Лестница",
+          "year": 2022
         }
       ]
     }

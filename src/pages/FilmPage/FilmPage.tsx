@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 import {CinemaLandAPI} from "../../services/cinemaLandService";
 import {useParams} from "react-router-dom";
 import "./FilmPage.scss"
@@ -7,13 +7,16 @@ import {useMediaQuery} from "react-responsive";
 import {MyButton} from "../../components/UI/MyButon/MyButton";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {favouritesSlice} from "../../store/favouritesSlice";
+import {FavouritesAPI} from "../../services/favouritesService";
+import {VideoPlayer} from "../../components/VideoPlayer/VideoPlayer";
 
-export const FilmPage = () => {
+export const FilmPage: FC = () => {
     const {filmId} = useParams()
     const [getFilm, {isLoading: isLoadingFilm, data: film}] = CinemaLandAPI.useLazyGetFilmByIdQuery();
+    const [updateFavourites, {}] = FavouritesAPI.useUpdateFavouritesMutation();
     let isSmallScreen = useMediaQuery({query: '(max-width: 700px)'});
-    const {isAuth} = useAppSelector(state => state.authReducer);
-    const {favourites} = useAppSelector(state => state.favouritesReducer)
+    const {isAuth, id: userId} = useAppSelector(state => state.authReducer);
+    const {favourites, id} = useAppSelector(state => state.favouritesReducer)
     const dispatch = useAppDispatch();
 
     // todo сделать запросы на изменение при работе с избранным
@@ -23,12 +26,15 @@ export const FilmPage = () => {
     }, [filmId])
 
     const addToFavourite = () => {
-        dispatch(favouritesSlice.actions.addToFavourites({Id: +filmId!, title: film!.name, year: film!.year,}))
+        dispatch(favouritesSlice.actions.addToFavourites({Id: +filmId!, title: film!.name, year: film!.year}))
+        updateFavourites({id, userId, favourites: [...favourites, {Id: +filmId!, title: film!.name, year: film!.year}]})
     }
 
     const removeFromFavourite = () => {
-        dispatch(favouritesSlice.actions.removeFromFavourites({Id: +filmId!, title: film!.name, year: film!.year,}))
+        dispatch(favouritesSlice.actions.removeFromFavourites(+filmId!))
+        updateFavourites({id, userId, favourites: favourites.filter(item => item.Id != +filmId!)})
     }
+
     return (
         <div className="filmInfo">
             {isLoadingFilm && <h1>Загрузка...</h1>}
@@ -75,6 +81,7 @@ export const FilmPage = () => {
 
             <div className="filmInfo__player">
                 <h1> TODO PLAYER</h1>
+                {/*<VideoPlayer/>*/}
             </div>
         </div>
     );

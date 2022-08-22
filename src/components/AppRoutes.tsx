@@ -14,6 +14,7 @@ export const AppRoutes = () => {
                 <Route path={apiRoutes.home} element={<HomePage/>}/>
                 <Route path={apiRoutes.login} element={<LoginPage/>}/>
                 <Route path={apiRoutes.film + ":filmId"} element={<FilmPage/>}/>
+                <Route path={apiRoutes.user + ":userId" + "/" + apiRoutes.film + ":filmId"} element={<FilmPage/>}/>
                 <Route path={apiRoutes.registering} element={<RegisteringPage/>}/>
                 <Route path={apiRoutes.user + ":userId"} element={<UserPage/>}/>
 
