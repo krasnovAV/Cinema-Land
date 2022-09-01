@@ -1,9 +1,6 @@
 # Стек технологий:
 
-##React + React Hooks
-##TypeScript
-##Redux Toolkit, RTK Query
-##Sass
+React + React Hooks, TypeScript, Redux Toolkit, RTK Query, Sass. Для авторизации в качестве бэкенда использован json server
 
 # Getting Started with Create React App
 
