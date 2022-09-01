@@ -1,9 +1,9 @@
 # Стек технологий:
 
-React + React Hooks
-TypeScript
-Redux Toolkit, RTK Query
-Sass
+##React + React Hooks
+##TypeScript
+##Redux Toolkit, RTK Query
+##Sass
 
 # Getting Started with Create React App
 
