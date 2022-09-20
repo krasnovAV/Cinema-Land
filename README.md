@@ -1,3 +1,7 @@
+# Стек технологий:
+
+React + React Hooks, TypeScript, Redux Toolkit, RTK Query, Sass. Для авторизации в качестве бэкенда использован json server
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
