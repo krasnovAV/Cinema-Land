@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Cinema-Land/static/css/main.ba5d2fb5.css",
-    "main.js": "/Cinema-Land/static/js/main.c3ce200b.js",
+    "main.css": "/Cinema-Land/static/css/main.2bf5d6c5.css",
+    "main.js": "/Cinema-Land/static/js/main.3d77494e.js",
     "reactPlayerYouTube.js": "/Cinema-Land/static/js/reactPlayerYouTube.a8380545.chunk.js",
     "reactPlayerSoundCloud.js": "/Cinema-Land/static/js/reactPlayerSoundCloud.51f1b87d.chunk.js",
     "reactPlayerVimeo.js": "/Cinema-Land/static/js/reactPlayerVimeo.bec251af.chunk.js",
@@ -17,8 +17,8 @@
     "reactPlayerPreview.js": "/Cinema-Land/static/js/reactPlayerPreview.c7afde0e.chunk.js",
     "static/media/icons-user.png": "/Cinema-Land/static/media/icons-user.f39032956b8096e815dd.png",
     "index.html": "/Cinema-Land/index.html",
-    "main.ba5d2fb5.css.map": "/Cinema-Land/static/css/main.ba5d2fb5.css.map",
-    "main.c3ce200b.js.map": "/Cinema-Land/static/js/main.c3ce200b.js.map",
+    "main.2bf5d6c5.css.map": "/Cinema-Land/static/css/main.2bf5d6c5.css.map",
+    "main.3d77494e.js.map": "/Cinema-Land/static/js/main.3d77494e.js.map",
     "reactPlayerYouTube.a8380545.chunk.js.map": "/Cinema-Land/static/js/reactPlayerYouTube.a8380545.chunk.js.map",
     "reactPlayerSoundCloud.51f1b87d.chunk.js.map": "/Cinema-Land/static/js/reactPlayerSoundCloud.51f1b87d.chunk.js.map",
     "reactPlayerVimeo.bec251af.chunk.js.map": "/Cinema-Land/static/js/reactPlayerVimeo.bec251af.chunk.js.map",
@@ -34,7 +34,7 @@
     "reactPlayerPreview.c7afde0e.chunk.js.map": "/Cinema-Land/static/js/reactPlayerPreview.c7afde0e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba5d2fb5.css",
-    "static/js/main.c3ce200b.js"
+    "static/css/main.2bf5d6c5.css",
+    "static/js/main.3d77494e.js"
   ]
 }
