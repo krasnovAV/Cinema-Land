@@ -19,8 +19,6 @@ export const FilmPage: FC = () => {
     const {favourites, id} = useAppSelector(state => state.favouritesReducer)
     const dispatch = useAppDispatch();
 
-    // todo сделать запросы на изменение при работе с избранным
-
     useEffect(() => {
         filmId && getFilm(+filmId);
     }, [filmId])
@@ -81,7 +79,7 @@ export const FilmPage: FC = () => {
 
             <div className="filmInfo__player">
                 <h1> TODO PLAYER</h1>
-                {/*<VideoPlayer/>*/}
+                <VideoPlayer/>
             </div>
         </div>
     );

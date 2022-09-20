@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {IMovie} from "../../../types/IMovie";
-import "./SliderItem.scss"
+import "./CarouselItem.scss"
 import {apiRoutes} from "../../../constants/routes";
 import {Link} from "react-router-dom";
 
@@ -8,7 +8,7 @@ interface IItem {
     item: IMovie
 }
 
-export const SliderItem: FC<IItem> = ({item}) => {
+export const CarouselItem: FC<IItem> = ({item}) => {
     return (
         <Link to={apiRoutes.film + item.id}>
             <div className="sliderItem">

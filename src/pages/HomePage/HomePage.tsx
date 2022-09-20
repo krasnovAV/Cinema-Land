@@ -1,7 +1,6 @@
 import React, {FC, memo, useEffect, useState} from 'react';
 import {CinemaLandAPI} from "../../services/cinemaLandService";
 import "./HomePage.scss"
-import {Slider} from "../../components/Slider/Slider";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {FilmCard} from "../../components/FilmCard/FilmCard";
 import {searchSlice} from "../../store/searchSlice";
@@ -9,6 +8,7 @@ import {Pagination} from "../../components/UI/Pagination/Pagination";
 import {LIMIT} from "../../constants/api";
 import {FavouritesAPI} from "../../services/favouritesService";
 import {favouritesSlice} from "../../store/favouritesSlice";
+import {Carousel} from "../../components/Carousel/Carousel";
 
 
 export const HomePage: FC = memo(() => {
@@ -62,7 +62,7 @@ export const HomePage: FC = memo(() => {
             {(isLoading || isLoadingByParams || isLoadingByName) && <h1>Загрузка...</h1>}
             {(error || errorByParams || errorByName) && <h1>Произошла ошибка при загрузке...</h1>}
 
-            {!isSmallScreen && <Slider movies={data?.docs}/>}
+            {!isSmallScreen && <Carousel movies={data?.docs}/>}
 
             {isSearchByName
                 ? dataByName?.docs.map(movie => <FilmCard movie={movie} key={movie.id}/>)
